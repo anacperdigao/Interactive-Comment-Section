@@ -1,12 +1,36 @@
-import React from "react";
+import React, { useState } from "react";
 import Comentario from "./components/Comentario";
 import { GlobalStyle } from "./components/GlobalStyle";
 import data from '../src/info/data.json'
 import ComentarioNovo from "./components/ComentarioNovo";
-import RespostaComentarios from "./components/RespostaComentarios";
+
 
 function App() {
 
+  const [commentsList, setCommentsList] = useState([...data.comments]);
+
+  const [newComment, setNewComment] = useState("");
+
+
+  const handleTextComment = (event) => {
+    setNewComment(event.target.value)
+  }
+
+
+  const handleSend = () => {
+    const copyCommentsList = [...commentsList];
+    
+    const newCommentObject = {
+      content: newComment,
+      createdAt: "now",
+      user:{
+        username: "juliusomo",
+      },
+    }
+
+    setCommentsList([...copyCommentsList, newCommentObject]);
+    setNewComment("");
+  }
 
 
   return (
@@ -14,7 +38,7 @@ function App() {
       <>
         <GlobalStyle />
 
-        {data.comments.map(({content, createdAt, user, id, replies}) => (
+        {commentsList.map(({content, createdAt, user, id, replies}) => (
           <Comentario
             key={id} 
             content = {content} 
@@ -24,7 +48,11 @@ function App() {
           />
         ))} 
   
-        <ComentarioNovo />
+        <ComentarioNovo
+        handleSend={handleSend}
+        handleTextComment={handleTextComment}
+        newComment={newComment}
+        />
 
       </>
     </div>

@@ -27,6 +27,9 @@ export const AreaDeTexto = styled.textarea`
     width: 450px;
     outline: none;
     resize: none;
+    font-size: 16px;
+    color: ${grayishBlue};
+    line-height: 1.4em;
 
     ::placeholder{
         font-size: 16px;
