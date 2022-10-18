@@ -17,14 +17,17 @@ function App() {
   }
 
 
-  const handleSend = () => {
+  const handleSend = (evento) => {
     const copyCommentsList = [...commentsList];
-    
+
     const newCommentObject = {
       content: newComment,
       createdAt: "now",
       user:{
         username: "juliusomo",
+        image: {
+          png: "./images/avatars/image-juliusomo.png"
+        },
       },
     }
 
@@ -33,18 +36,28 @@ function App() {
   }
 
 
+  const handleDelete = (evento, index) => {
+    const copyCommentsList = [...commentsList];
+    copyCommentsList.splice(index, 1)
+
+    setCommentsList([...copyCommentsList])
+  }
+
+
   return (
     <div className="App">
       <>
         <GlobalStyle />
 
-        {commentsList.map(({content, createdAt, user, id, replies}) => (
+        {commentsList.map(({content, createdAt, user, replies}, index) => (
           <Comentario
-            key={id} 
+            key={content} 
             content = {content} 
             createdAt = {createdAt} 
             username = {user.username}
             replies = {replies}
+            handleDelete = {handleDelete}
+            index={index}
           />
         ))} 
   

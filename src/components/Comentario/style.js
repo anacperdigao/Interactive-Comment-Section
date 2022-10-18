@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { darkBlue, grayishBlue, lightGrayishBlue, moderateBlue } from '../UI/variaveis';
+import { darkBlue, grayishBlue, lightGrayishBlue, moderateBlue, paleRed, softRed } from '../UI/variaveis';
 
 
 export const ContainerComentario = styled.div`
@@ -16,6 +16,7 @@ export const ContainerComentario = styled.div`
     width: 650px;
 `;
 
+
 export const ContainerUsuarioData = styled.div`
     display: flex;
     flex-direction: row;
@@ -23,15 +24,18 @@ export const ContainerUsuarioData = styled.div`
     align-items: center;
 `
 
+
 export const FotoUsuario = styled.img`
     height: 30px;
     width: 30px;
 `
 
+
 export const NomeUsuario = styled.p`
     color: ${darkBlue};
     font-weight: 500;
 `
+
 
 export const DataAtualizacao = styled.p`
     color: ${grayishBlue};
@@ -52,13 +56,60 @@ export const ContainerReply = styled.div`
     }
 `
 
+
+export const ContainerDeleteEdit = styled.div`
+    display: flex;
+    align-items: center;
+    justify-content: right;
+    gap: 25px;
+`
+
+
+export const ContainerDelete = styled.div`
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    cursor: pointer;
+    color: ${softRed};
+
+    :hover{
+        color: ${paleRed};
+    }
+`
+
+
+export const ContainerEdit = styled.div`
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    cursor: pointer;
+    color: ${moderateBlue};
+
+    :hover{
+        color: ${lightGrayishBlue};
+    }
+`
+
+
+export const TextoDelete = styled.p`
+    font-weight: 500;
+`
+
+
+export const TextoEdit = styled.p`
+    font-weight: 500;
+`
+
+
+export const TextoReply = styled.p`
+    font-weight: 500;
+`
+
 export const TextoComentario = styled.p`
     grid-column: span 2;
     margin-top: 10px;
     color: ${grayishBlue};
     line-height: 1.4em;
-`
-
-export const TextoReply = styled.p`
-    font-weight: 500;
 `

@@ -1,5 +1,5 @@
 import React from "react";
-import { FaReply } from 'react-icons/fa'
+import { FaReply, FaTrash, FaEdit } from 'react-icons/fa'
 import * as S from "./style.js"
 import amyrobson from "../../assets/images/image-amyrobson.png"
 // import juliusomo from "../../assets/images/image-juliusomo.png"
@@ -7,7 +7,7 @@ import amyrobson from "../../assets/images/image-amyrobson.png"
 // import ramsesmiron from "../../assets/images/image-ramsesmiron.png"
 
 
-const Comentario = ({content, createdAt, username}) => {
+const Comentario = ({content, createdAt, username, handleDelete, index}) => {
 
     // const imagens = [
     //     {username: amyrobson}, 
@@ -25,10 +25,25 @@ const Comentario = ({content, createdAt, username}) => {
                 <S.DataAtualizacao>{createdAt}</S.DataAtualizacao>
             </S.ContainerUsuarioData>
 
+            {username==="juliusomo" 
+            ?
+            <S.ContainerDeleteEdit>
+                <S.ContainerDelete onClick={(evento) => handleDelete(evento, index)}>
+                    <FaTrash />
+                    <S.TextoDelete>Delete</S.TextoDelete>
+                </S.ContainerDelete>
+
+                <S.ContainerEdit>
+                    <FaEdit />
+                    <S.TextoEdit>Edit</S.TextoEdit>
+                </S.ContainerEdit>
+            </S.ContainerDeleteEdit>            
+            :
             <S.ContainerReply>
                 <FaReply />
                 <S.TextoReply>Reply</S.TextoReply>
-            </S.ContainerReply>
+            </S.ContainerReply> 
+            }
 
             <S.TextoComentario>{content}</S.TextoComentario>
 
