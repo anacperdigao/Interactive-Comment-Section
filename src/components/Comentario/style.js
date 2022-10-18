@@ -4,7 +4,6 @@ import { darkBlue, grayishBlue, lightGrayishBlue, moderateBlue } from '../UI/var
 
 export const ContainerComentario = styled.div`
     background-color: white;
-    width: 650px;
     height: 160px;
     display: grid;
     grid-template-columns: 70% 30%;
@@ -13,6 +12,9 @@ export const ContainerComentario = styled.div`
     justify-content: space-between;
     padding: 25px;
     font-size: 16px;
+    margin-bottom: 20px;
+
+    width: ${(props) => (props.reply ? "590px" : "650px")};
 `;
 
 export const ContainerUsuarioData = styled.div`
