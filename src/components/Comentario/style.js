@@ -13,8 +13,7 @@ export const ContainerComentario = styled.div`
     padding: 25px;
     font-size: 16px;
     margin-bottom: 20px;
-
-    width: ${(props) => (props.reply ? "590px" : "650px")};
+    width: 650px;
 `;
 
 export const ContainerUsuarioData = styled.div`
