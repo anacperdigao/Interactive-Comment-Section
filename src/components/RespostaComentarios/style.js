@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { darkBlue, grayishBlue, lightGrayishBlue, moderateBlue } from '../UI/variaveis';
+import { darkBlue, grayishBlue, lightGrayishBlue, moderateBlue, softRed, paleRed } from '../UI/variaveis';
 
 
 export const ContainerComentario = styled.div`
@@ -10,6 +10,7 @@ export const ContainerComentario = styled.div`
     grid-template-rows: 30% 70%;
     border-radius: 10px;
     justify-content: space-between;
+    justify-self: right;
     padding: 25px;
     font-size: 16px;
     margin-bottom: 20px;
@@ -61,4 +62,57 @@ export const TextoComentario = styled.p`
 
 export const TextoReply = styled.p`
     font-weight: 500;
+`
+
+export const ContainerDeleteEdit = styled.div`
+    display: flex;
+    align-items: center;
+    justify-content: right;
+    gap: 25px;
+`
+
+
+export const ContainerDelete = styled.div`
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    cursor: pointer;
+    color: ${softRed};
+
+    :hover{
+        color: ${paleRed};
+    }
+`
+
+
+export const ContainerEdit = styled.div`
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    cursor: pointer;
+    color: ${moderateBlue};
+
+    :hover{
+        color: ${lightGrayishBlue};
+    }
+`
+
+
+export const TextoDelete = styled.p`
+    font-weight: 500;
+`
+
+
+export const TextoEdit = styled.p`
+    font-weight: 500;
+`
+
+
+export const TagYou = styled.p`
+    background-color: ${moderateBlue};
+    color: white;
+    padding: 1px 5px;
+    border-radius: 2px;
 `

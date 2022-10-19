@@ -113,3 +113,10 @@ export const TextoComentario = styled.p`
     color: ${grayishBlue};
     line-height: 1.4em;
 `
+
+export const TagYou = styled.p`
+    background-color: ${moderateBlue};
+    color: white;
+    padding: 1px 5px;
+    border-radius: 2px;
+`

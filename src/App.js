@@ -3,6 +3,7 @@ import Comentario from "./components/Comentario";
 import { GlobalStyle } from "./components/GlobalStyle";
 import data from '../src/info/data.json'
 import ComentarioNovo from "./components/ComentarioNovo";
+import RespostaComentarios from "./components/RespostaComentarios";
 
 
 function App() {
@@ -25,9 +26,6 @@ function App() {
       createdAt: "now",
       user:{
         username: "juliusomo",
-        image: {
-          png: "./images/avatars/image-juliusomo.png"
-        },
       },
     }
 
@@ -44,30 +42,52 @@ function App() {
   }
 
 
+  const handleEdit = (evento, index) => {
+    // habilitar a caixa de texto no evento certo ao clicar em Editar
+    // criar botao "update" ao clicar em Editar
+    // Reatribuir o valor newComment dentro de commentsList
+  }
+
+  console.log(commentsList[1].replies)
+
   return (
     <div className="App">
-      <>
-        <GlobalStyle />
 
-        {commentsList.map(({content, createdAt, user, replies}, index) => (
-          <Comentario
-            key={content} 
-            content = {content} 
-            createdAt = {createdAt} 
-            username = {user.username}
-            replies = {replies}
-            handleDelete = {handleDelete}
-            index={index}
-          />
-        ))} 
-  
-        <ComentarioNovo
-        handleSend={handleSend}
-        handleTextComment={handleTextComment}
-        newComment={newComment}
+      <GlobalStyle />
+
+      {commentsList.map(({content, createdAt, user, replies}, index) => 
+        <Comentario
+          key={content} 
+          content = {content} 
+          createdAt = {createdAt} 
+          username = {user.username}
+          replies = {replies}
+          handleDelete = {handleDelete}
+          handleEdit = {handleEdit}
+          index={index}
         />
+      )}
 
-      </>
+      {commentsList[1].replies.map(({content, createdAt, user, replies}, index) => 
+        <RespostaComentarios
+          key={content} 
+          content = {content} 
+          createdAt = {createdAt} 
+          username = {user.username}
+          replies = {replies}
+          handleDelete = {handleDelete}
+          handleEdit = {handleEdit}
+          index={index}
+        />
+      )}
+        
+      <ComentarioNovo
+      handleSend={handleSend}
+      handleTextComment={handleTextComment}
+      newComment={newComment}
+      />
+
+      
     </div>
   );
 }
