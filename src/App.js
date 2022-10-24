@@ -4,6 +4,7 @@ import { GlobalStyle } from "./components/GlobalStyle";
 import data from '../src/info/data.json'
 import ComentarioNovo from "./components/ComentarioNovo";
 import RespostaComentarios from "./components/RespostaComentarios";
+import CancelaComentario from "./components/CancelaComentario";
 
 
 function App() {
@@ -12,6 +13,7 @@ function App() {
 
   const [newComment, setNewComment] = useState("");
 
+  const [model, setModel] = useState(true); // Tela de cancelar começa como false
 
   const handleTextComment = (event) => {
     setNewComment(event.target.value)
@@ -80,6 +82,12 @@ function App() {
           index={index}
         />
       )}
+
+      <CancelaComentario
+      model = {model}
+      setModel = {setModel}
+      handleDelete = {handleDelete}
+      />
         
       <ComentarioNovo
       handleSend={handleSend}
