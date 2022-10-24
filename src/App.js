@@ -4,7 +4,6 @@ import { GlobalStyle } from "./components/GlobalStyle";
 import data from '../src/info/data.json'
 import ComentarioNovo from "./components/ComentarioNovo";
 import RespostaComentarios from "./components/RespostaComentarios";
-import CancelaComentario from "./components/CancelaComentario";
 
 
 function App() {
@@ -13,7 +12,6 @@ function App() {
 
   const [newComment, setNewComment] = useState("");
 
-  const [model, setModel] = useState(true); // Tela de cancelar começa como false
 
   const handleTextComment = (event) => {
     setNewComment(event.target.value)
@@ -50,7 +48,7 @@ function App() {
     // Reatribuir o valor newComment dentro de commentsList
   }
 
-  console.log(commentsList[1].replies)
+
 
   return (
     <div className="App">
@@ -70,7 +68,7 @@ function App() {
         />
       )}
 
-      {commentsList[1].replies.map(({content, createdAt, user, replies}, index) => 
+      {/* {commentsList[1].replies.map(({content, createdAt, user, replies}, index) => 
         <RespostaComentarios
           key={content} 
           content = {content} 
@@ -81,13 +79,8 @@ function App() {
           handleEdit = {handleEdit}
           index={index}
         />
-      )}
+      )} */}
 
-      <CancelaComentario
-      model = {model}
-      setModel = {setModel}
-      handleDelete = {handleDelete}
-      />
         
       <ComentarioNovo
       handleSend={handleSend}

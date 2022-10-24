@@ -14,13 +14,10 @@ const CancelaComentario = ({model, setModel, handleDelete, index}) => {
               comment and can't be undone.
             </S.Paragrafo>
             <S.ContainerBotoes>
-              <S.BotaoNoDelete className='no-delete' onClick={() => setModel(false)}>
+              <S.BotaoNoDelete onClick={() => setModel(false)}>
                 No, cancel
               </S.BotaoNoDelete>
-              <S.BotaoYesDelete
-                className='yes-delete'
-                onClick={(evento) => handleDelete(evento, index)}
-              >
+              <S.BotaoYesDelete onClick={(evento) => handleDelete(evento, index)}>
                 Yes, Delete
               </S.BotaoYesDelete>
             </S.ContainerBotoes>

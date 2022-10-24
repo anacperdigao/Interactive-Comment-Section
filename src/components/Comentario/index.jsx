@@ -1,16 +1,19 @@
-import React from "react";
+import React, { useState } from "react";
 import { FaReply, FaTrash, FaEdit } from 'react-icons/fa'
 import * as S from "./style.js"
 import amyrobson from "../../assets/images/image-amyrobson.png"
 import juliusomo from "../../assets/images/image-juliusomo.png"
 import maxblagun from "../../assets/images/image-maxblagun.png"
 import ramsesmiron from "../../assets/images/image-ramsesmiron.png"
+import CancelaComentario from "../CancelaComentario";
 
 
 const Comentario = ({content, createdAt, username, handleDelete, handleEdit, index}) => {
 
+    const [model, setModel] = useState(false); // Tela de cancelar começa como false
 
     return (
+        <>
         <S.ContainerComentario>
 
             <S.ContainerUsuarioData>
@@ -30,7 +33,7 @@ const Comentario = ({content, createdAt, username, handleDelete, handleEdit, ind
             {username==="juliusomo" 
             ?
             <S.ContainerDeleteEdit>
-                <S.ContainerDelete onClick={(evento) => handleDelete(evento, index)}>
+                <S.ContainerDelete onClick={() => setModel(true)}>
                     <FaTrash />
                     <S.TextoDelete>Delete</S.TextoDelete>
                 </S.ContainerDelete>
@@ -50,6 +53,19 @@ const Comentario = ({content, createdAt, username, handleDelete, handleEdit, ind
             <S.TextoComentario>{content}</S.TextoComentario>
 
         </S.ContainerComentario>
+
+        { model 
+        ?
+        <CancelaComentario
+            model={model}
+            setModel = {setModel}
+            handleDelete = {handleDelete}
+            index = {index}
+        />
+        :
+        null
+        }
+        </>
     )
 };
 
