@@ -1,9 +1,12 @@
 import React from "react";
 import * as S from "./style.js"
 import juliusomo from "../../assets/images/image-juliusomo.png"
+import { useComentariosContext } from "../../common/context/Comentarios.js";
 
 
-const ComentarioNovo = ({handleTextComment, handleSend, newComment}) => {
+const ComentarioNovo = () => {
+
+    const { handleSend, handleTextComment, newComment } = useComentariosContext()
 
     return (
 

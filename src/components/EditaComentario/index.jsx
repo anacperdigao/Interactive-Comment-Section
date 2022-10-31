@@ -1,9 +1,13 @@
 import React from "react";
 import * as S from "./style.js"
 import juliusomo from "../../assets/images/image-juliusomo.png"
+import { useComentariosContext } from "../../common/context/Comentarios.js";
 
 
-const EditaComentario = ({content, index, handleUpdate, handleTextCommentUpdated, commentUpdated}) => {
+const EditaComentario = ({content, index}) => {
+
+
+    const { handleUpdate } = useComentariosContext()
 
     return(
         <S.ContainerEditaComentario>
@@ -15,7 +19,7 @@ const EditaComentario = ({content, index, handleUpdate, handleTextCommentUpdated
                 <S.DataAtualizacao>now</S.DataAtualizacao>
             </S.ContainerUsuarioData>
 
-            <S.AreaDeTexto value={commentUpdated} onChange={handleTextCommentUpdated}>{content}</S.AreaDeTexto>
+            <S.AreaDeTexto>{content}</S.AreaDeTexto>
 
             <S.BotaoUpdate onClick={(evento) => handleUpdate(evento, index)}>
                 UPDATE

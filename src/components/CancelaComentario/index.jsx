@@ -1,8 +1,10 @@
 import React from "react";
+import { useComentariosContext } from "../../common/context/Comentarios.js";
 import * as S from "./style.js"
 
-const CancelaComentario = ({model, setModel, handleDelete, index}) => {
+const CancelaComentario = ({model, setModel, index}) => {
 
+  const { handleDelete } = useComentariosContext()
 
     return(
 
