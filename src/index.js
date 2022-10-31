@@ -1,11 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './App';
+import { ComentariosProvider } from './common/context/Comentarios';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App />
+    <ComentariosProvider>
+      <App />
+    </ComentariosProvider>
   </React.StrictMode>
 );
 

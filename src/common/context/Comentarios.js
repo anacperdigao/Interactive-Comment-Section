@@ -32,21 +32,24 @@ export const ComentariosProvider = ({children}) => {
 
 
 export const useComentariosContext = () => {
+
     const {commentsList, setCommentsList, newComment, setNewComment, editaComentario, setEditaComentario} 
     = useContext(ComentariosContext);
 
-  
+    //--------------------------------Finalizado-----------------------------------------
+
     const handleTextComment = (event) => {
         setNewComment(event.target.value)
       }
     
+    //-------------------------------Em andamento-------------------------------------------
       /*
       const handleTextCommentUpdated = (event) => {
         setCommentUpdated(event.target.value)
         console.log(commentUpdated)
       }
       */
-    
+    //--------------------------------Finalizado----------------------------------------
     
       const handleSend = (evento) => {
         const copyCommentsList = [...commentsList];
@@ -64,7 +67,8 @@ export const useComentariosContext = () => {
     
       }
     
-    
+    //---------------------------------Finalizado-----------------------------------------
+
       const handleDelete = (evento, index) => {
         const copyCommentsList = [...commentsList];
         copyCommentsList.splice(index, 1)
@@ -72,25 +76,30 @@ export const useComentariosContext = () => {
         setCommentsList([...copyCommentsList])
       }
     
-    
+    //--------------------------------Em andamento---------------------------------------
+
     // eu só quero que o edit comentario abra no index que eu cliquei
       const handleEdit = (evento, index) => {
         // const copyCommentsList = [...commentsList];
         // const comentarioEditavel = copyCommentsList.splice(index, 1)
     
-        setEditaComentario((evento, index) => true)
+        setEditaComentario(true)
         console.log(editaComentario)
     
       }
     
-    
+    //--------------------------------Em andamento-----------------------------------------
+
       const handleUpdate = (evento, index) => {
     
         //commentsList.content = commentUpdated
         //setCommentUpdated("")
         setEditaComentario(false)
       }
+    
+    //------------------------------------------------------------------------
   
+
     return {
         handleTextComment,
         handleSend,

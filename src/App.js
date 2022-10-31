@@ -1,21 +1,26 @@
+// React
 import React from "react";
-import Comentario from "./components/Comentario";
+
+// Style
 import { GlobalStyle } from "./components/GlobalStyle";
+
+// Componentes
+import Comentario from "./components/Comentario";
 import ComentarioNovo from "./components/ComentarioNovo";
-import { ComentariosProvider, useComentariosContext } from "./common/context/Comentarios";
 //import RespostaComentarios from "./components/RespostaComentarios";
+
+// Context
+import { useComentariosContext } from "./common/context/Comentarios";
 
 
 function App() {
 
   const { commentsList } = useComentariosContext()
 
-  
   return (
     <div className="App">
 
-      <ComentariosProvider>
-        <GlobalStyle />
+      <GlobalStyle />
 
         {commentsList.map(({content, createdAt, user, replies}, index) => 
           <Comentario
@@ -40,10 +45,9 @@ function App() {
             index={index}
           />
         )} */}
-
           
         <ComentarioNovo />
-      </ComentariosProvider>
+
     </div>
   );
 }
