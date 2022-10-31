@@ -3,7 +3,8 @@ import Comentario from "./components/Comentario";
 import { GlobalStyle } from "./components/GlobalStyle";
 import data from '../src/info/data.json'
 import ComentarioNovo from "./components/ComentarioNovo";
-import RespostaComentarios from "./components/RespostaComentarios";
+import EditaComentario from "./components/EditaComentario";
+//import RespostaComentarios from "./components/RespostaComentarios";
 
 
 function App() {
@@ -11,6 +12,8 @@ function App() {
   const [commentsList, setCommentsList] = useState([...data.comments]);
 
   const [newComment, setNewComment] = useState("");
+
+  const [editaComentario, setEditaComentario] = useState(false);
 
 
   const handleTextComment = (event) => {
@@ -43,9 +46,7 @@ function App() {
 
 
   const handleEdit = (evento, index) => {
-    // habilitar a caixa de texto no evento certo ao clicar em Editar
-    // criar botao "update" ao clicar em Editar
-    // Reatribuir o valor newComment dentro de commentsList
+    setEditaComentario(true)
   }
 
 
@@ -55,7 +56,7 @@ function App() {
 
       <GlobalStyle />
 
-      {commentsList.map(({content, createdAt, user, replies}, index) => 
+      {commentsList.map(({content, createdAt, user, replies, newComment}, index) => 
         <Comentario
           key={content} 
           content = {content} 
@@ -65,6 +66,7 @@ function App() {
           handleDelete = {handleDelete}
           handleEdit = {handleEdit}
           index={index}
+          editaComentario = {editaComentario}
         />
       )}
 
@@ -87,7 +89,6 @@ function App() {
       handleTextComment={handleTextComment}
       newComment={newComment}
       />
-
       
     </div>
   );

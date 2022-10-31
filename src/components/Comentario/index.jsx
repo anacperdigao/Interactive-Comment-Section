@@ -6,9 +6,10 @@ import juliusomo from "../../assets/images/image-juliusomo.png"
 import maxblagun from "../../assets/images/image-maxblagun.png"
 import ramsesmiron from "../../assets/images/image-ramsesmiron.png"
 import CancelaComentario from "../CancelaComentario";
+import EditaComentario from "../EditaComentario/index.jsx";
 
 
-const Comentario = ({content, createdAt, username, handleDelete, handleEdit, index}) => {
+const Comentario = ({content, createdAt, username, handleDelete, handleEdit, index, editaComentario}) => {
 
     const [model, setModel] = useState(false); // Tela de cancelar começa como false
 
@@ -65,6 +66,20 @@ const Comentario = ({content, createdAt, username, handleDelete, handleEdit, ind
         :
         null
         }
+
+
+        {editaComentario
+        ?
+        <EditaComentario
+        handleEdit = {handleEdit}
+        index = {index}
+        content = {content}
+        />
+        :
+        null
+        }
+
+
         </>
     )
 };
