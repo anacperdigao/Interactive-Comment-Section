@@ -3,7 +3,7 @@ import * as S from "./style.js"
 import juliusomo from "../../assets/images/image-juliusomo.png"
 
 
-const EditaComentario = ({content}) => {
+const EditaComentario = ({content, index, handleUpdate, handleTextCommentUpdated, commentUpdated}) => {
 
     return(
         <S.ContainerEditaComentario>
@@ -15,9 +15,11 @@ const EditaComentario = ({content}) => {
                 <S.DataAtualizacao>now</S.DataAtualizacao>
             </S.ContainerUsuarioData>
 
-            <S.AreaDeTexto>{content}</S.AreaDeTexto>
+            <S.AreaDeTexto value={commentUpdated} onChange={handleTextCommentUpdated}>{content}</S.AreaDeTexto>
 
-            <S.BotaoUpdate>UPDATE</S.BotaoUpdate>
+            <S.BotaoUpdate onClick={(evento) => handleUpdate(evento, index)}>
+                UPDATE
+            </S.BotaoUpdate>
         </S.ContainerEditaComentario>
     )
 }

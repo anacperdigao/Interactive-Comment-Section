@@ -3,22 +3,28 @@ import Comentario from "./components/Comentario";
 import { GlobalStyle } from "./components/GlobalStyle";
 import data from '../src/info/data.json'
 import ComentarioNovo from "./components/ComentarioNovo";
-import EditaComentario from "./components/EditaComentario";
 //import RespostaComentarios from "./components/RespostaComentarios";
 
 
 function App() {
 
   const [commentsList, setCommentsList] = useState([...data.comments]);
-
   const [newComment, setNewComment] = useState("");
-
   const [editaComentario, setEditaComentario] = useState(false);
+  //const [index, setIndex] = useState(-1)
+  //const [commentUpdated, setCommentUpdated] = useState(commentsList.content)
 
 
   const handleTextComment = (event) => {
     setNewComment(event.target.value)
   }
+
+  /*
+  const handleTextCommentUpdated = (event) => {
+    setCommentUpdated(event.target.value)
+    console.log(commentUpdated)
+  }
+  */
 
 
   const handleSend = (evento) => {
@@ -34,6 +40,7 @@ function App() {
 
     setCommentsList([...copyCommentsList, newCommentObject]);
     setNewComment("");
+
   }
 
 
@@ -45,10 +52,24 @@ function App() {
   }
 
 
+// eu só quero que o edit comentario abra no index que eu cliquei
   const handleEdit = (evento, index) => {
-    setEditaComentario(true)
+    // const copyCommentsList = [...commentsList];
+    // const comentarioEditavel = copyCommentsList.splice(index, 1)
+
+    setEditaComentario((evento, index) => true)
+    console.log(editaComentario)
+
   }
 
+
+  const handleUpdate = (evento, index) => {
+
+    //commentsList.content = commentUpdated
+    //setCommentUpdated("")
+    setEditaComentario(false)
+  }
+  
 
 
   return (
@@ -56,7 +77,7 @@ function App() {
 
       <GlobalStyle />
 
-      {commentsList.map(({content, createdAt, user, replies, newComment}, index) => 
+      {commentsList.map(({content, createdAt, user, replies}, index) => 
         <Comentario
           key={content} 
           content = {content} 
@@ -67,6 +88,10 @@ function App() {
           handleEdit = {handleEdit}
           index={index}
           editaComentario = {editaComentario}
+          setEditaComentario = {setEditaComentario}
+          handleUpdate = {handleUpdate}
+          //handleTextCommentUpdated = {handleTextCommentUpdated}
+          //commentUpdated = {commentUpdated}
         />
       )}
 

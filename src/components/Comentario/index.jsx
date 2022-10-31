@@ -9,7 +9,7 @@ import CancelaComentario from "../CancelaComentario";
 import EditaComentario from "../EditaComentario/index.jsx";
 
 
-const Comentario = ({content, createdAt, username, handleDelete, handleEdit, index, editaComentario}) => {
+const Comentario = ({content, createdAt, username, handleDelete, handleEdit, index, editaComentario, setEditaComentario, handleUpdate, handleTextCommentUpdated, commentUpdated}) => {
 
     const [model, setModel] = useState(false); // Tela de cancelar começa como false
 
@@ -74,6 +74,11 @@ const Comentario = ({content, createdAt, username, handleDelete, handleEdit, ind
         handleEdit = {handleEdit}
         index = {index}
         content = {content}
+        editaComentario = {editaComentario}
+        setEditaComentario = {setEditaComentario}
+        handleUpdate = {handleUpdate}
+        handleTextCommentUpdated = {handleTextCommentUpdated}
+        commentUpdated = {commentUpdated}
         />
         :
         null
