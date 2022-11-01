@@ -8,13 +8,16 @@ import ramsesmiron from "../../assets/images/image-ramsesmiron.png"
 import CancelaComentario from "../CancelaComentario";
 import EditaComentario from "../EditaComentario/index.jsx";
 import { useComentariosContext } from "../../common/context/Comentarios.js";
+import RespostaComentarios from "../RespostaComentarios/index";
 
 
 const Comentario = ({content, createdAt, username, index}) => {
 
-    const [model, setModel] = useState(false); // Tela de cancelar começa como false
+    const [cancela, setCancela] = useState(false); // Tela de cancelar começa como false
+    // state editaComentario nao deveria existir 
+     
+    const { handleEdit, editaComentario, commentsList } = useComentariosContext()
 
-    const { handleEdit, editaComentario } = useComentariosContext()
 
     return (
         <>
@@ -34,14 +37,14 @@ const Comentario = ({content, createdAt, username, index}) => {
                         )}
 
                         <S.NomeUsuario>{username}</S.NomeUsuario>
-                        { username === "juliusomo" ? <S.TagYou>you</S.TagYou> : null}
+                        { username === "juliusomo" && <S.TagYou>you</S.TagYou>}
                         <S.DataAtualizacao>{createdAt}</S.DataAtualizacao>
                     </S.ContainerUsuarioData>
 
                     {username==="juliusomo" 
                     ?
                     <S.ContainerDeleteEdit>
-                        <S.ContainerDelete onClick={() => setModel(true)}>
+                        <S.ContainerDelete onClick={() => setCancela(true)}>
                             <FaTrash />
                             <S.TextoDelete>Delete</S.TextoDelete>
                         </S.ContainerDelete>
@@ -61,22 +64,25 @@ const Comentario = ({content, createdAt, username, index}) => {
                     <S.TextoComentario>{content}</S.TextoComentario>
 
                 </S.ContainerComentario>
-            }    
-
-            { model 
-            ?
-            <CancelaComentario model={model} setModel={setModel} index={index} />
-            :
-            null
             }
 
+            {commentsList[index].replies.map(({content, createdAt, user, replies}, index) => 
+                <RespostaComentarios
+                    key={content} 
+                    content = {content} 
+                    createdAt = {createdAt} 
+                    username = {user.username}
+                    replies = {replies}
+                    // handleDelete = {handleDelete}
+                    // handleEdit = {handleEdit}
+                    index={index}
+                />
+            )}    
 
-            {/* {editaComentario
-            ?
-            <EditaComentario index={index} content={content} />
-            :
-            null
-            } */}
+            { cancela && <CancelaComentario cancela={cancela} setCancela={setCancela} index={index} /> }
+
+
+            {/* { editaComentario && <EditaComentario index={index} content={content} /> } */}
 
             
         </>

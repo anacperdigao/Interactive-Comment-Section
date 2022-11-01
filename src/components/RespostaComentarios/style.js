@@ -2,20 +2,34 @@ import styled from 'styled-components';
 import { darkBlue, grayishBlue, lightGrayishBlue, moderateBlue, softRed, paleRed } from '../UI/variaveis';
 
 
+
+export const ContainerGeral = styled.div`
+    display: flex;
+    align-items: center;
+    justify-content: right;
+`
+
+export const LinhaVertical = styled.div`
+    height: 120px;
+    border-right: 2px solid ${lightGrayishBlue};
+    margin-bottom: 20px;
+`
+
 export const ContainerComentario = styled.div`
     background-color: white;
     height: 160px;
+    width: 590px;
     display: grid;
     grid-template-columns: 70% 30%;
     grid-template-rows: 30% 70%;
     border-radius: 10px;
     justify-content: space-between;
-    justify-self: right;
     padding: 25px;
     font-size: 16px;
     margin-bottom: 20px;
-    width: 590px;
+    margin-left: 30px;
 `;
+
 
 export const ContainerUsuarioData = styled.div`
     display: flex;
@@ -116,3 +130,4 @@ export const TagYou = styled.p`
     padding: 1px 5px;
     border-radius: 2px;
 `
+
