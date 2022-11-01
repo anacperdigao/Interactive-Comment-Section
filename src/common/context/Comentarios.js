@@ -82,10 +82,10 @@ export const useComentariosContext = () => {
       const handleEdit = (evento, index) => {
         // const copyCommentsList = [...commentsList];
         // const comentarioEditavel = copyCommentsList.splice(index, 1)
-    
+        // console.log(comentarioEditavel)
+
         setEditaComentario(true)
-        console.log(editaComentario)
-    
+        
       }
     
     //--------------------------------Em andamento-----------------------------------------

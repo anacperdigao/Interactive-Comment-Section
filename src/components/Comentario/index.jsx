@@ -18,45 +18,50 @@ const Comentario = ({content, createdAt, username, index}) => {
 
     return (
         <>
-            <S.ContainerComentario>
+            {editaComentario
+            ?
+                <EditaComentario index={index} content={content} />
+            :
+                <S.ContainerComentario>
 
-                <S.ContainerUsuarioData>
-                    { username === "amyrobson" ? <S.FotoUsuario src = {amyrobson} alt = "avatar" /> : (
-                        username === "juliusomo" ? <S.FotoUsuario src = {juliusomo} alt = "avatar" /> : (
-                            username === "maxblagun" ? <S.FotoUsuario src = {maxblagun} alt = "avatar" /> : (
-                                username === "ramsesmiron" ? <S.FotoUsuario src = {ramsesmiron} alt = "avatar" /> : null  
-                            )  
-                        )
-                    )}
+                    <S.ContainerUsuarioData>
+                        { username === "amyrobson" ? <S.FotoUsuario src = {amyrobson} alt = "avatar" /> : (
+                            username === "juliusomo" ? <S.FotoUsuario src = {juliusomo} alt = "avatar" /> : (
+                                username === "maxblagun" ? <S.FotoUsuario src = {maxblagun} alt = "avatar" /> : (
+                                    username === "ramsesmiron" ? <S.FotoUsuario src = {ramsesmiron} alt = "avatar" /> : null  
+                                )  
+                            )
+                        )}
 
-                    <S.NomeUsuario>{username}</S.NomeUsuario>
-                    { username === "juliusomo" ? <S.TagYou>you</S.TagYou> : null}
-                    <S.DataAtualizacao>{createdAt}</S.DataAtualizacao>
-                </S.ContainerUsuarioData>
+                        <S.NomeUsuario>{username}</S.NomeUsuario>
+                        { username === "juliusomo" ? <S.TagYou>you</S.TagYou> : null}
+                        <S.DataAtualizacao>{createdAt}</S.DataAtualizacao>
+                    </S.ContainerUsuarioData>
 
-                {username==="juliusomo" 
-                ?
-                <S.ContainerDeleteEdit>
-                    <S.ContainerDelete onClick={() => setModel(true)}>
-                        <FaTrash />
-                        <S.TextoDelete>Delete</S.TextoDelete>
-                    </S.ContainerDelete>
+                    {username==="juliusomo" 
+                    ?
+                    <S.ContainerDeleteEdit>
+                        <S.ContainerDelete onClick={() => setModel(true)}>
+                            <FaTrash />
+                            <S.TextoDelete>Delete</S.TextoDelete>
+                        </S.ContainerDelete>
 
-                    <S.ContainerEdit onClick={(evento) => handleEdit(evento, index)}>
-                        <FaEdit />
-                        <S.TextoEdit>Edit</S.TextoEdit>
-                    </S.ContainerEdit>
-                </S.ContainerDeleteEdit>            
-                :
-                <S.ContainerReply>
-                    <FaReply />
-                    <S.TextoReply>Reply</S.TextoReply>
-                </S.ContainerReply> 
-                }
+                        <S.ContainerEdit onClick={(evento) => handleEdit(evento, index)}>
+                            <FaEdit />
+                            <S.TextoEdit>Edit</S.TextoEdit>
+                        </S.ContainerEdit>
+                    </S.ContainerDeleteEdit>            
+                    :
+                    <S.ContainerReply>
+                        <FaReply />
+                        <S.TextoReply>Reply</S.TextoReply>
+                    </S.ContainerReply> 
+                    }
 
-                <S.TextoComentario>{content}</S.TextoComentario>
+                    <S.TextoComentario>{content}</S.TextoComentario>
 
-            </S.ContainerComentario>
+                </S.ContainerComentario>
+            }    
 
             { model 
             ?
@@ -66,14 +71,14 @@ const Comentario = ({content, createdAt, username, index}) => {
             }
 
 
-            {editaComentario
+            {/* {editaComentario
             ?
             <EditaComentario index={index} content={content} />
             :
             null
-            }
+            } */}
 
-
+            
         </>
     )
 };
