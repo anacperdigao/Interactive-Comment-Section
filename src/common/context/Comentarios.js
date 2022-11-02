@@ -60,6 +60,7 @@ export const useComentariosContext = () => {
           user:{
             username: "juliusomo",
           },
+          replies: [],
         }
     
         setCommentsList([...copyCommentsList, newCommentObject]);
@@ -72,8 +73,8 @@ export const useComentariosContext = () => {
       const handleDelete = (evento, index) => {
         const copyCommentsList = [...commentsList];
         copyCommentsList.splice(index, 1)
-    
-        setCommentsList([...copyCommentsList])
+
+        setCommentsList([...copyCommentsList])        
       }
     
     //--------------------------------Em andamento---------------------------------------

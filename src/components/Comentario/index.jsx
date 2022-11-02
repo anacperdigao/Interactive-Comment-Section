@@ -73,18 +73,12 @@ const Comentario = ({content, createdAt, username, index}) => {
                     createdAt = {createdAt} 
                     username = {user.username}
                     replies = {replies}
-                    // handleDelete = {handleDelete}
-                    // handleEdit = {handleEdit}
                     index={index}
                 />
             )}    
 
-            { cancela && <CancelaComentario cancela={cancela} setCancela={setCancela} index={index} /> }
+            {cancela && <CancelaComentario cancela={cancela} setCancela={setCancela} index={index} />}
 
-
-            {/* { editaComentario && <EditaComentario index={index} content={content} /> } */}
-
-            
         </>
     )
 };

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { FaReply, FaTrash, FaEdit } from 'react-icons/fa'
+import { FaTrash, FaEdit } from 'react-icons/fa'
 import * as S from "./style.js"
 import amyrobson from "../../assets/images/image-amyrobson.png"
 import juliusomo from "../../assets/images/image-juliusomo.png"
@@ -9,7 +9,7 @@ import CancelaComentario from "../CancelaComentario";
 import { useComentariosContext } from "../../common/context/Comentarios.js";
 
 
-const RespostaComentarios = ({content, createdAt, username, handleDelete, index}) => {
+const RespostaComentarios = ({content, createdAt, username, index}) => {
 
     const [cancela, setCancela] = useState(false); // Tela de cancelar começa como false
 
@@ -36,7 +36,7 @@ const RespostaComentarios = ({content, createdAt, username, handleDelete, index}
                 </S.ContainerUsuarioData>
 
                 {username==="juliusomo" 
-                ?
+                &&
                 <S.ContainerDeleteEdit>
                     <S.ContainerDelete onClick={() => setCancela(true)}>
                         <FaTrash />
@@ -48,11 +48,6 @@ const RespostaComentarios = ({content, createdAt, username, handleDelete, index}
                         <S.TextoEdit>Edit</S.TextoEdit>
                     </S.ContainerEdit>
                 </S.ContainerDeleteEdit>            
-                :
-                <S.ContainerReply>
-                    <FaReply />
-                    <S.TextoReply>Reply</S.TextoReply>
-                </S.ContainerReply> 
                 }
 
                 <S.TextoComentario>{content}</S.TextoComentario>
