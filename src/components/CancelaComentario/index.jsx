@@ -2,7 +2,7 @@ import React from "react";
 import { useComentariosContext } from "../../common/context/Comentarios.js";
 import * as S from "./style.js"
 
-const CancelaComentario = ({cancela, setCancela, index}) => {
+const CancelaComentario = ({cancela, setCancela, index }) => {
 
   const { handleDelete } = useComentariosContext()
 

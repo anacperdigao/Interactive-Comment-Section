@@ -74,9 +74,9 @@ export const useComentariosContext = () => {
         const copyCommentsList = [...commentsList];
         copyCommentsList.splice(index, 1)
 
-        setCommentsList([...copyCommentsList])        
+        setCommentsList([...copyCommentsList])      
       }
-    
+
     //--------------------------------Em andamento---------------------------------------
 
     // eu só quero que o edit comentario abra no index que eu cliquei

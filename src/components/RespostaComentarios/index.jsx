@@ -5,8 +5,8 @@ import amyrobson from "../../assets/images/image-amyrobson.png"
 import juliusomo from "../../assets/images/image-juliusomo.png"
 import maxblagun from "../../assets/images/image-maxblagun.png"
 import ramsesmiron from "../../assets/images/image-ramsesmiron.png"
-import CancelaComentario from "../CancelaComentario";
 import { useComentariosContext } from "../../common/context/Comentarios.js";
+import CancelaComentario from "../CancelaComentario/index.jsx";
 
 
 const RespostaComentarios = ({content, createdAt, username, index}) => {
